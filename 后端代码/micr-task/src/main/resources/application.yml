@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: micr-task
+dubbo:
+  scan:
+    base-packages: com.xiaoguan.task
+  registry:
+    address: zookeeper://localhost:2181
+  consumer:
+    timeout: 80000
+    check: false
+    retries: 0

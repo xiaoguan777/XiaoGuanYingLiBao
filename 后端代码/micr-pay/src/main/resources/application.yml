@@ -1,0 +1,30 @@
+server:
+  servlet:
+    context-path: /pay
+  port: 9000
+
+spring:
+  thymeleaf:
+    cache:false
+  application:
+    name: mic-pay
+  redis:
+    port: 6379
+    host: localhost
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+dubbo:
+  registry:
+    address: zookeeper://localhost:2181
+  scan:
+    base-packages: com.xiaoguan.micrpay
+  consumer:
+    check: false
+    timeout: 80000
+    retries: 0
+interceptor:
+#  该地址仅仅备用
+  url: /v1/test
+jwt:
+  secretKey: ce842a499c774779ac4b3c4d67095311

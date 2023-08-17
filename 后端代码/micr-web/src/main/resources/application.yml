@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: micr-web
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  redis:
+    host: localhost
+    port: 6379
+server:
+  port: 8000
+  servlet:
+    context-path: /api
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+dubbo:
+  registry:
+    address: zookeeper://localhost:2181
+  scan:
+    base-packages: com.xiaoguan.front
+  consumer:
+    check: false
+    timeout: 80000
+    retries: 0
+aliyun:
+  sms:
+    host: https://dfsns.market.alicloudapi.com
+    path: /data/send_sms
+    method: POST
+    appcode: 77fdac608932484bb873fca5dc650c57
+    templateId: CST_qozfh101
+    ssmTime: 3
+  realName:
+    host: https://eid.shumaidata.com
+    path: /eid/check
+    method: POST
+    appcode: 77fdac608932484bb873fca5dc650c57
+
+jwt:
+  secretKey: ce842a499c774779ac4b3c4d67095311
+
+interceptor:
+  url: /v1/user/realName,/v1/user/userAcountInfo,/v1/recharge/records,/v1/invest/detail,/v1/income/detail,/v1/invest/product
